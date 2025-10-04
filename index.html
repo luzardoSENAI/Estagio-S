@@ -1,102 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EstagioS · Controle de Frequência</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
-
-  <!-- Fonte Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap 5.3.3 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- CSS customizado -->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstagioS - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background:linear-gradient(to bottom, #069E9E,#016D6B); /* Fundo verde do vídeo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .login-card {
+            max-width: 450px;
+            width: 100%;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        .app-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #212529;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-label {
+            font-weight: 500;
+        }
+    </style>
 </head>
-<body class="bg-light" style="font-family: 'Inter', sans-serif;">
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+<body>
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center fw-bold text-primary" href="#">
-        <img src="{% static 'img/logo.png' %}" alt="Logo EstagioS" width="40" height="40" class="me-2">
-        Estagio<span class="text-warning">S</span>
-      </a>
+        <div class="login-card mx-auto">
+            <h1 class="app-logo">EstágioS</h1>
+            <h5 class="text-center mb-4">Login</h5>
+            <p class="text-center text-muted mb-4">Digite os seus dados de acesso no campo abaixo.</p>
+
+            <form>
+                <div class="mb-3">
+                    <label for="emailLogin" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="emailLogin" placeholder="Digite seu e-mail">
+                </div>
+                <div class="mb-3">
+                    <label for="senhaLogin" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senhaLogin" placeholder="Digite sua senha">
+                    <small class="form-text text-muted">
+                        <a href="redefinir-senha.html" class="text-decoration-none">Esqueceu sua senha?</a>
+                    </small>
+                </div>
+                <div class="d-grid mt-4">
+                    <a href="indice.html" class="btn btn-lg">Acessar</a>
+                </div>
+                <p class="text-center mt-3 mb-0">Não tem uma conta? <a href="nova-conta.html" class="text-decoration-none">Crie uma aqui</a></p>
+            </form>
+        </div>
     </div>
-  </nav>
 
-  <!-- Hero / Apresentação -->
-  <header class="bg-primary text-white text-center py-5">
-    <div class="container">
-      <h1 class="display-4 fw-bold">EstagioS</h1>
-      <p class="lead">Controle de frequência inteligente para alunos em diferentes locais de estágio</p>
-    </div>
-  </header>
-
-  <!-- Sobre o serviço -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <img src="{% static 'img/estagios-demo.png' %}" alt="Demonstração EstagioS" class="img-fluid rounded shadow">
-        </div>
-        <div class="col-md-6">
-          <h2 class="fw-bold text-primary">O que é o EstagioS?</h2>
-          <p class="mt-3">
-            O <strong>EstagioS</strong> é um sistema de controle de frequência voltado para alunos que realizam 
-            atividades em empresas parceiras e instituições externas. Ele permite que orientadores e gestores 
-            acompanhem em tempo real as presenças, ausências e registros de entrada/saída dos estagiários.
-          </p>
-          <p>
-            A solução integra tecnologias IoT (ESP32 + NFC) para registros locais, 
-            sincronização automática com a nuvem e relatórios completos que facilitam a gestão do estágio supervisionado.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Funcionalidades -->
-  <section class="py-5 bg-light">
-    <div class="container text-center">
-      <h2 class="fw-bold text-primary mb-4">Funcionalidades</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <h5 class="card-title text-warning">✔ Registro via NFC</h5>
-              <p class="card-text">Cada aluno registra sua frequência aproximando a tag NFC, garantindo agilidade e confiabilidade.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <h5 class="card-title text-warning">📊 Relatórios Automáticos</h5>
-              <p class="card-text">Geração de relatórios de presença em tempo real, exportáveis para Excel/CSV.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <h5 class="card-title text-warning">🌐 Sincronização Online</h5>
-              <p class="card-text">Integração com Google Sheets para centralizar os dados e facilitar o acompanhamento remoto.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Rodapé -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p class="mb-0">© 2025 EstagioS · Desenvolvido  (SESI SENAI)</p>
-  </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
